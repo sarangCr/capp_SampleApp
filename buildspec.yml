@@ -1,0 +1,26 @@
+version: 0.2
+env:
+  git-credential-helper: yes
+phases:
+  install:
+    commands:
+    - echo dependancy installtion started on `date`
+    - echo "update done pre build starting"
+  pre_build:
+    commands:
+      - echo Pre Build started on `date`
+      - echo step2 assets/config install
+  build:
+    commands:
+      - ./gradlew clean
+      - ./gradlew assembleRelease
+  post_build:
+    commands:
+      - echo build done
+      # - command
+artifacts:
+  files:
+    # artifacts:
+  files:
+    - app/build/outputs/apk/debug/*.apk
+  discard-paths: yes  
